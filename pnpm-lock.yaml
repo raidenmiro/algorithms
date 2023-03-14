@@ -1,0 +1,37 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@types/node': ^18.14.2
+  prettier: ^2.8.4
+  sade: ^1.8.1
+
+dependencies:
+  sade: 1.8.1
+
+devDependencies:
+  '@types/node': 18.14.2
+  prettier: 2.8.4
+
+packages:
+
+  /@types/node/18.14.2:
+    resolution: {integrity: sha512-1uEQxww3DaghA0RxqHx0O0ppVlo43pJhepY51OxuQIKHpjbnYLA7vcdwioNPzIqmC2u3I/dmylcqjlh0e7AyUA==}
+    dev: true
+
+  /mri/1.2.0:
+    resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
+    engines: {node: '>=4'}
+    dev: false
+
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /sade/1.8.1:
+    resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
+    engines: {node: '>=6'}
+    dependencies:
+      mri: 1.2.0
+    dev: false
