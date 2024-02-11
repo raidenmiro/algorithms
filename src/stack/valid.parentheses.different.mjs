@@ -1,6 +1,7 @@
 import { Stack } from "./impl.mjs";
 
 /**
+ * @link https://leetcode.com/problems/valid-parentheses
  * @example
  * ```js
  * const result = validParenthesesDifferent('()[]{}')

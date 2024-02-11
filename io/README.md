@@ -6,4 +6,8 @@
 node ./io/read.from.console.cjs
 ```
 
-## From file
+## Create solution for task from template
+
+```sh
+npm run io:create
+```

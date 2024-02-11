@@ -9,7 +9,6 @@ exports.module = (lines) => {
   const stack = new StackWithGuard();
 
   for (const line of lines) {
-    debugger
     if (matchDigit(line)) {
       stack.push(line.split(" ")[1]);
       console.log("ok");

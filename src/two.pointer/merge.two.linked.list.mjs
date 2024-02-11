@@ -1,3 +1,6 @@
+/**
+ * @link https://leetcode.com/problems/merge-two-sorted-lists
+ */
 export default (list1, list2, root) => {
   let l = list1,
     r = list2,
