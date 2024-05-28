@@ -1,5 +1,5 @@
 import assert from "node:assert";
-import { describe, test } from "node:test";
+import {describe, test} from "node:test";
 import infixToPostfix from "../infix.to.postfix.mjs";
 
 describe("infix to postfix", () => {

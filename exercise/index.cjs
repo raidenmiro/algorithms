@@ -1,9 +1,9 @@
 `use strict`;
 
 const fs = require("fs");
-const { createInterface } = require("readline");
+const {createInterface} = require("readline");
 const sade = require("sade");
-const { print } = require("./utils.cjs");
+const {print} = require("./utils.cjs");
 
 const prog = sade("cli-yandex-training");
 
@@ -62,18 +62,18 @@ prog
   });
 
 prog
-  .command("new <number>")
-  .example("new 12")
+  .command("new solution for <lecture> <decision-name>")
+  .example("new 5.0 max-range")
   .option("-c, --console", "use read from console and print to console")
   .option(
     "-f, --file",
     "Use read from file <input.txt>, and output to <output.txt>"
   )
-  .action((number, opts) => {
-    const dir = `./exercise/${number}`;
+  .action((number, decisionName, opts) => {
+    const dir = `./exercise/yandex.${number}/${decisionName}`;
 
     if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+      fs.mkdirSync(dir, {recursive: true});
     } else {
       return print("directory is exist!");
     }

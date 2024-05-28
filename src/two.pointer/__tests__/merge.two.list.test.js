@@ -1,5 +1,5 @@
 import assert from "node:assert";
-import { describe, test } from "node:test";
+import {describe, test} from "node:test";
 import mergeTwoList from "../merge.two.list.mjs";
 
 describe("merge two sorted list", () => {

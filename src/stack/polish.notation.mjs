@@ -1,4 +1,4 @@
-import { Stack } from "./impl.mjs";
+import {Stack} from "./impl.mjs";
 import int from "../utils/int.mjs";
 /**
  * @example

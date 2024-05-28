@@ -1,5 +1,5 @@
 import assert from "node:assert";
-import { describe, test } from "node:test";
+import {describe, test} from "node:test";
 import validParenthesesSingle from "../valid.parentheses.single.mjs";
 
 describe("Valid parentheses [single kind brackets]", () => {

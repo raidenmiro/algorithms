@@ -1,5 +1,5 @@
 import assert from "node:assert";
-import { describe, test } from "node:test";
+import {describe, test} from "node:test";
 import sumQuery from "../sum.query.mjs";
 
 describe("sum query by interval", () => {

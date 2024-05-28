@@ -1,4 +1,4 @@
-import { Stack } from "./impl.mjs";
+import {Stack} from "./impl.mjs";
 
 /**
  * @link https://leetcode.com/problems/valid-parentheses
@@ -11,7 +11,7 @@ import { Stack } from "./impl.mjs";
 
 export default (string) => {
   const stack = new Stack(),
-    rules = { "(": ")", "{": "}", "[": "]" };
+    rules = {"(": ")", "{": "}", "[": "]"};
 
   for (let i = 0; i < string.length; ++i) {
     const current = string.charAt(i);

@@ -23,7 +23,7 @@ async function main() {
     signal,
   });
 
-  const SOLUTION_PATH = path.join(root, `${name}.cjs`);
+  const SOLUTION_PATH = path.join(root, `${name}.mjs`);
 
   const isExistRoot = await checkFileExists(root);
   const isExistFile = await checkFileExists(SOLUTION_PATH);
@@ -55,7 +55,13 @@ async function main() {
   );
 }
 
-main();
+main()
+  .then(() => {
+    console.log("Happy hacking!");
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 function checkFileExists(filename) {
   return fs
@@ -74,7 +80,7 @@ const rl = createInterface({
 
 const INPUT_FROM_IO = [];
 
-console.info('Write your input for %s:', filename);
+console.info('Write your input for <${filename}>:');
 
 rl
   .on("line", (line) => INPUT_FROM_IO.push(line))
@@ -94,6 +100,8 @@ function processData(input) {
 */
 function main(args) {
   // Your code here for solving problem
+  process.exit(0);
+  return 0;
 }
 `;
 }
