@@ -12,7 +12,7 @@
     "cli": "node ./exercise/index.cjs"
   },
   "devDependencies": {
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.19.34",
     "prettier": "^2.8.4"
   },
   "dependencies": {

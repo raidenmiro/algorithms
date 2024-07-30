@@ -22,7 +22,7 @@ export default (n1, n2, a, b) => {
     res = [];
 
   while (i < n1 || j < n2) {
-    if (j == n2 || (i < n1 && a[i] < b[j])) {
+    if (j === n2 || (i < n1 && a[i] < b[j])) {
       i++;
     } else {
       res[j] = i;

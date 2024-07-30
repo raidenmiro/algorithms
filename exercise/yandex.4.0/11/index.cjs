@@ -1,5 +1,3 @@
-`use strict`;
-
 const StackWithGuard = require("./impl.cjs");
 const { print } = require("../utils.cjs");
 

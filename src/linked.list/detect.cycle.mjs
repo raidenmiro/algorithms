@@ -14,7 +14,7 @@ export default (head) => {
     if (slow === fast) {
       let lazy = slow;
 
-      while (lazy != slow) {
+      while (lazy !== slow) {
         slow = slow.next;
         lazy = slow.next;
       }

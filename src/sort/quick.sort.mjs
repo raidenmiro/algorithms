@@ -9,8 +9,8 @@ export const quickSort = (arr, l, r) => {
 const partition = (arr, l, r) => {
   const middle = arr[Math.floor((l + r) / 2)];
 
-  let i = l,
-    j = r;
+  let i = l;
+  let j = r;
 
   while (i <= j) {
     while (arr[i] < middle) {

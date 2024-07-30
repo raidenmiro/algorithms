@@ -1,7 +1,5 @@
-`use strict`;
-
-const fs = require("fs");
-const {createInterface} = require("readline");
+const fs = require("node:fs");
+const {createInterface} = require("node:readline");
 const sade = require("sade");
 const {print} = require("./utils.cjs");
 
@@ -21,8 +19,8 @@ prog
   )
   .example("exec 1")
   .action((number, opts) => {
-    const input = [],
-      entry = require(`./${number}/index.cjs`);
+    const input = [];
+    const entry = require(`./${number}/index.cjs`);
 
     if (!opts.file) {
       const rl = createInterface({
@@ -82,7 +80,7 @@ prog
 
 exports.module = (input) => {}`;
 
-    fs.writeFile(`${dir}/index.cjs`, template, function (err) {
+    fs.writeFile(`${dir}/index.cjs`, template, (err) => {
       if (err) print(err);
       else print("The file was saved!");
     });
@@ -92,14 +90,14 @@ exports.module = (input) => {}`;
       const output = templates.output(number);
 
       if (!fs.existsSync(input)) {
-        fs.appendFile(input, "unreachable!", function (err) {
+        fs.appendFile(input, "unreachable!", (err) => {
           if (err) throw err;
           console.log("Created input file!");
         });
       }
 
       if (!fs.existsSync(output)) {
-        fs.appendFile(output, "not completed!", function (err) {
+        fs.appendFile(output, "not completed!", (err) => {
           if (err) throw err;
           console.log("Created output file!");
         });

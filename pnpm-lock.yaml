@@ -13,7 +13,7 @@ importers:
         version: 1.8.1
     devDependencies:
       '@types/node':
-        specifier: ^18.14.2
+        specifier: ^18.19.34
         version: 18.19.34
       prettier:
         specifier: ^2.8.4

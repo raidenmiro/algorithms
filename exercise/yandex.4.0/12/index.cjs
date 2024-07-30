@@ -3,8 +3,8 @@ const { print } = require("../utils.cjs");
 exports.module = (input) => {
   const [str] = input;
 
-  const stack = [],
-    rules = { "{": "}", "[": "]", "(": ")" };
+  const stack = [];
+  const rules = { "{": "}", "[": "]", "(": ")" };
 
   for (let i = 0; i < str.length; ++i) {
     const current = str.charAt(i);

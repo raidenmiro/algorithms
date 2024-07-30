@@ -43,7 +43,7 @@ async function main() {
   fs.writeFile(SOLUTION_PATH, template).then(
     () => {
       console.log(
-        `File for your solution was created, happy hacking: ${SOLUTION_PATH}`
+        `File for your solution was created: ${SOLUTION_PATH}`
       );
 
       process.exit(1);
