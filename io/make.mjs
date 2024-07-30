@@ -71,7 +71,7 @@ function checkFileExists(filename) {
 }
 
 function makeTemplate(filename) {
-  return `import { createInterface } from "readline";
+  return `import { createInterface } from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,

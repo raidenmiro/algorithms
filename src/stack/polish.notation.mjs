@@ -9,10 +9,10 @@ import int from "../utils/int.mjs";
  */
 
 export default (string) => {
-  const stack = new Stack(),
-    tokens = string.split(" "),
-    operation = new Set(["+", "-", "*", "/"]),
-    computed = matchOperation();
+  const stack = new Stack();
+  const tokens = string.split(" ");
+  const operation = new Set(["+", "-", "*", "/"]);
+  const computed = matchOperation();
 
   for (const token of tokens) {
     if (operation.has(token)) {
