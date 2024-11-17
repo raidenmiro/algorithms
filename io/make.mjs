@@ -100,8 +100,7 @@ function processData(input) {
 */
 function main(args) {
   // Your code here for solving problem
-  process.exit(0);
-  return 0;
+  
 }
 `;
 }

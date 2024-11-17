@@ -1,4 +1,4 @@
-import { createInterface } from "readline";
+import { createInterface } from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -7,8 +7,8 @@ const rl = createInterface({
 
 const INPUT_FROM_IO = [];
 
-console.info("Write your input for <max-in-array>:");
-
+// y = ax2 + bx + c
+// a, x, b, c
 rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
   const parsedInput = processData(INPUT_FROM_IO);
   const solution = main(parsedInput);
@@ -18,9 +18,16 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 
 function processData(input) {
   const [line] = input
-  return line.split(',').map(n => Number(n))
+  return line.split(' ').map(Number);
 }
 
+/*
+ *  @link ...
+ */
 function main(args) {
-  return Math.max(...args)
+  const [a, x, b, c] = args;
+
+  const y = a * (x ** 2) + b * x + c;
+
+  return y;
 }

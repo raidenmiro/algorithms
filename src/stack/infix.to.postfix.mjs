@@ -19,8 +19,8 @@ const kinds = {
  * ```
  */
 export default (x) => {
-  let postfix = "",
-    stack = new Stack();
+  let postfix = "";
+  let stack = new Stack();
 
   for (let i = 0; i < x.length; ++i) {
     const current = x.charAt(i);
