@@ -12,7 +12,7 @@ const readline = createInterface({
 const __dirname = import.meta.dirname;
 
 async function main() {
-  const signal = AbortSignal.timeout(10_000);
+  const signal = AbortSignal.timeout(20_000);
   const root = path.join(__dirname, "solution");
 
   signal.addEventListener("abort", () => {
@@ -71,7 +71,9 @@ function checkFileExists(filename) {
 }
 
 function makeTemplate(filename) {
-  return `import { createInterface } from "node:readline";
+  return `
+// @link
+import { createInterface } from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -86,7 +88,7 @@ rl
   .on("line", (line) => INPUT_FROM_IO.push(line))
   .on("close", () => {
     const parsedInput = processData(INPUT_FROM_IO);
-    const solution = main(parsedInput);
+    const solution = solve(parsedInput);
 
     console.log(solution);
 });
@@ -96,11 +98,10 @@ function processData(input) {
 }
 
 /*
-*  @link ...
+*  @link
 */
-function main(args) {
+function solve(args) {
   // Your code here for solving problem
-  
 }
 `;
 }
