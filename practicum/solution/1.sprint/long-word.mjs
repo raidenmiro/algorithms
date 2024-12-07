@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -25,12 +25,13 @@ function processData(input) {
 function main(args) {
   const [n, str] = args;
 
-  let longWord = '';
+  let longWord = "";
 
   for (let i = 0; i < n; i++) {
-    let end = i, cnt = 0;
+    let end = i,
+      cnt = 0;
 
-    while (str[end] !== ' ' && end < n) {
+    while (str[end] !== " " && end < n) {
       cnt++;
       end++;
     }

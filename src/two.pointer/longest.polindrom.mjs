@@ -2,6 +2,9 @@ function checkPalindrom(str) {
   return str == str.split('').reverse().join('');
 }
 
+/**
+ * @link https://leetcode.com/problems/longest-palindromic-substring/
+ */
 function longestPalindrome(s) {
   let longest = [], size = s.length;
 

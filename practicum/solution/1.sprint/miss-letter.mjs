@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -26,7 +26,7 @@ function main(args) {
   const hash = {};
   const target = s1.length > s2.length ? s1 : s2;
   const small = s1.length < s2.length ? s1 : s2;
-  
+
   for (let ch of target) {
     hash[ch] = (hash[ch] || 0) + 1;
   }
@@ -43,5 +43,5 @@ function main(args) {
     }
   }
 
-  return 'None';
+  return "None";
 }

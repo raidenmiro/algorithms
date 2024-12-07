@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -17,8 +17,8 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 });
 
 function processData(input) {
-  const [n ,array] = input;
-  return [Number(n), array.split(' ').map(Number)];
+  const [n, array] = input;
+  return [Number(n), array.split(" ").map(Number)];
 }
 
 function main(args) {
@@ -49,7 +49,7 @@ function main(args) {
     }
   }
 
-  return distances.join(' ');
+  return distances.join(" ");
 }
 
 export default main;

@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -17,9 +17,9 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 });
 
 function processData(input) {
-  const [k, ...matrix]  = input;
+  const [k, ...matrix] = input;
 
-  return [Number(k), matrix.map(line => line.split(''))];
+  return [Number(k), matrix.map((line) => line.split(""))];
 }
 
 function main(args) {
@@ -30,7 +30,7 @@ function main(args) {
     for (let j = 0; j < matrix[i].length; j++) {
       const current = matrix[i][j];
 
-      if (current !== '.') {
+      if (current !== ".") {
         const digit = Number(current);
         map[digit] = (map[digit] || 0) + 1;
       }
@@ -38,13 +38,13 @@ function main(args) {
   }
 
   let score = 0;
-  Object.keys(map).forEach(key => {
+  Object.keys(map).forEach((key) => {
     const count = map[key];
 
     if (count <= k * 2) {
       score++;
     }
-  })
+  });
 
   return score;
 }

@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -37,7 +37,7 @@ class StackWithMax {
 
   pop() {
     if (this.stack.length === 0) {
-      return console.log('error');
+      return console.log("error");
     }
 
     const value = this.stack.pop();
@@ -51,10 +51,9 @@ class StackWithMax {
 
   getMax() {
     const max = this.max;
-    return Number.isFinite(max) ? max : 'None';
+    return Number.isFinite(max) ? max : "None";
   }
 }
-
 
 function main(args) {
   const [n, commands] = args;
@@ -62,16 +61,16 @@ function main(args) {
   const stack = new StackWithMax();
 
   for (let i = 0; i < n; i++) {
-    const [command, value] = commands[i].split(' ');
+    const [command, value] = commands[i].split(" ");
 
     switch (command) {
-      case 'push':
+      case "push":
         stack.push(Number(value));
         break;
-      case 'get_max':
+      case "get_max":
         console.log(stack.getMax());
         break;
-      case 'pop':
+      case "pop":
         stack.pop();
         break;
     }

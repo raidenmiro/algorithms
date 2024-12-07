@@ -15,6 +15,7 @@
  * @param a - first array
  * @param b - second array
  * @returns array
+ * @link https://www.hackerrank.com/challenges/compare-the-triplets/problem
  */
 export default (n1, n2, a, b) => {
   let i = 0,

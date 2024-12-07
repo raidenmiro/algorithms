@@ -19,6 +19,14 @@ async function main() {
     console.log("Timeout. Please run command again.");
   });
 
+  const useClasses = await readline
+    .question("Does the solution utilize classes? (yes/no) ")
+    .then((answer) => answer.includes("yes"));
+
+  const useComplexity = await readline
+    .question("Should contain a description of the complexity? (yes/no) ")
+    .then((answer) => answer.includes("yes"));
+
   const name = await readline.question("Write name of file for solution: ", {
     signal,
   });
@@ -38,13 +46,13 @@ async function main() {
     );
   }
 
-  const template = prettier.format(makeTemplate(name));
+  const template = prettier.format(
+    makeTemplate(name, {useClasses, useComplexity})
+  );
 
   fs.writeFile(SOLUTION_PATH, template).then(
     () => {
-      console.log(
-        `File for your solution was created: ${SOLUTION_PATH}`
-      );
+      console.log(`File for your solution was created: ${SOLUTION_PATH}`);
 
       process.exit(1);
     },
@@ -70,9 +78,34 @@ function checkFileExists(filename) {
     .catch(() => false);
 }
 
-function makeTemplate(filename) {
+const remoteJungle = `
+  if (process.env.REMOTE_JUDGE !== 'true') {
+      class Node {
+        constructor(value = null, next = null) {
+          this.value = value;
+          this.next = next;
+        }
+      }
+  }
+`;
+
+const complexityTemplate = `
+/**
+ * -- ПРИНЦИП РАБОТЫ --
+ *
+ * -- ДОКАЗАТЕЛЬСТВО КОРРЕКТНОСТИ --
+ *
+ * -- ВРЕМЕННАЯ СЛОЖНОСТЬ --
+ *
+ * -- ПРОСТРАНСТВЕННАЯ СЛОЖНОСТЬ --
+ */
+`;
+
+function makeTemplate(filename, options = {}) {
   return `
 // @link
+
+${options.useComplexity ? complexityTemplate : ""}
 import { createInterface } from "node:readline";
 
 const rl = createInterface({
@@ -92,6 +125,8 @@ rl
 
     console.log(solution);
 });
+
+${options.useClasses ? remoteJungle : ""}
 
 function processData(input) {
   // Your code here for processing input

@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -24,10 +24,10 @@ function processData(input) {
 function main(n) {
   let x = n;
 
-  let r = '';
+  let r = "";
   while (x > 0) {
     if (x % 2 === 0) {
-      r += '0';
+      r += "0";
     } else {
       r += 1;
     }
@@ -35,5 +35,5 @@ function main(n) {
     x = Math.floor(x / 2);
   }
 
-  return r.split('').reverse().join('');
+  return r.split("").reverse().join("");
 }

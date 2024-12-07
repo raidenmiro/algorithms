@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -21,22 +21,18 @@ function processData(input) {
 }
 
 function main(args) {
-  const [s] = args
+  const [s] = args;
 
   const stack = [];
   const rules = {"(": ")", "{": "}", "[": "]"};
-
-  if (s.length === 0) {
-    return 'True';
-  }
 
   for (let ch of s) {
     if (ch in rules) {
       stack.push(ch);
     } else {
-      if (stack.length === 0 || ch !== rules[stack.pop()]) return 'False'
+      if (stack.length === 0 || ch !== rules[stack.pop()]) return "False";
     }
   }
 
-  return stack.length === 0 ? 'True' : 'False';
+  return stack.length === 0 ? "True" : "False";
 }

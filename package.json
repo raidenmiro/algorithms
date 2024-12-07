@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "node --test",
-    "io:create": "node ./io/make.mjs",
-    "cli": "node ./exercise/index.cjs"
+    "make": "node ./practicum/make.mjs",
+    "pass:solutions": "node ./practicum/archive.mjs"
+
   },
   "devDependencies": {
     "@types/node": "^18.19.34",

@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -18,7 +18,7 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 
 function processData(input) {
   const [line] = input;
-  return line.split(' ').map(Number);
+  return line.split(" ").map(Number);
 }
 
 /*
@@ -30,5 +30,5 @@ function main(args) {
   const sumFirst = a + b;
   const sumLast = b + c;
 
-  return sumFirst % 2 === 0 && sumLast % 2 === 0 ? 'WIN' : 'FAIL';
+  return sumFirst % 2 === 0 && sumLast % 2 === 0 ? "WIN" : "FAIL";
 }

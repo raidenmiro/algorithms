@@ -1,4 +1,4 @@
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -23,7 +23,7 @@ function processData(input) {
 
 function main(str) {
   let l = 0,
-   r = str.length - 1;
+    r = str.length - 1;
 
   const letters = /[a-z0-9]/i;
 
@@ -42,11 +42,11 @@ function main(str) {
     }
 
     if (h.toLowerCase() !== t.toLowerCase()) {
-      return 'False';
+      return "False";
     }
     l++;
     r--;
   }
 
-  return 'True';
+  return "True";
 }
