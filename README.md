@@ -17,3 +17,9 @@ pnpm install
 ```sh
 pnpm make
 ```
+
+### Submit solution
+
+```sh
+pnpm submit
+```
