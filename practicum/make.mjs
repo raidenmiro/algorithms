@@ -54,7 +54,7 @@ async function main() {
     () => {
       console.log(`File for your solution was created: ${SOLUTION_PATH}`);
 
-      process.exit(1);
+      process.exit(0);
     },
     (error) => {
       console.error("Not possible to create file %s. Please try again.", error);

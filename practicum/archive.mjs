@@ -6,14 +6,13 @@ const readline = createInterface({
   output: process.stdout,
 });
 
-
 const ARCHIVE_FILENAME = "__submit_solution__";
 
 async function main() {
   const numberOfSprint = await readline.question("Write sprint number: ");
   const sprintDirectory = `${numberOfSprint}.sprint`;
 
-  console.info('Creating or updating output directory...');
+  console.info("Creating or updating output directory...");
   execSync(`mkdir -p ${ARCHIVE_FILENAME}`);
 
   const filenames = await readline.question(
@@ -29,9 +28,13 @@ async function main() {
     return;
   }
 
-  console.info('Archiving...');
-  execSync(`zip -j ${ARCHIVE_FILENAME}/${sprintDirectory}.zip ${arrifyFilenames.join(" ")} -x "*.DS_Store"`);
-  console.log('\x1b[36m%s\x1b[0m', 'Done for sending!!'); 
+  console.info("Archiving...");
+  execSync(
+    `zip -j ${ARCHIVE_FILENAME}/${sprintDirectory}.zip ${arrifyFilenames.join(
+      " "
+    )} -x "*.DS_Store"`
+  );
+  console.log("\x1b[36m%s\x1b[0m", "Done for sending!!");
 
   process.exit(0);
 }
