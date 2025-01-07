@@ -6,13 +6,13 @@ class Node {
   }
 }
 
-
 const parsedInput = processData();
 const solution = solve(parsedInput, 1);
 printNodes(solution);
 
 function printNodes(node) {
-  let curr = node, result = [];
+  let curr = node,
+    result = [];
 
   while (curr !== null) {
     result.push(curr.value);
@@ -20,7 +20,7 @@ function printNodes(node) {
   }
 
   // expected: result is node0 -> node2 -> node3
-  console.log(result.join('->'))
+  console.log(result.join("->"));
 }
 
 function processData() {
@@ -29,7 +29,7 @@ function processData() {
   var node1 = new Node("node1", node2);
   var node0 = new Node("node0", node1);
 
-  return node0
+  return node0;
 }
 
 /*
@@ -37,18 +37,19 @@ function processData() {
  */
 function solve(head, idx) {
   if (idx === 0) {
-    return head.next
+    return head.next;
   }
 
-  let curr = head, position = 0
+  let curr = head,
+    position = 0;
   while (curr !== null && position < idx - 1) {
-    curr = curr.next
-    position++
+    curr = curr.next;
+    position++;
   }
 
   if (curr !== null && curr.next !== null) {
-    curr.next = curr.next.next
+    curr.next = curr.next.next;
   }
 
-  return head
+  return head;
 }

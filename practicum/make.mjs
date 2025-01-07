@@ -1,6 +1,7 @@
+import { fail } from "node:assert";
 import fs from "node:fs/promises";
 import path from "node:path";
-import {createInterface} from "node:readline/promises";
+import { createInterface } from "node:readline/promises";
 
 import prettier from "prettier";
 
@@ -19,9 +20,10 @@ async function main() {
     console.log("Timeout. Please run command again.");
   });
 
-  const useClasses = await readline
-    .question("Does the solution utilize classes? (yes/no) ")
-    .then((answer) => answer.includes("yes"));
+  const useIOTemplate =
+    (await readline
+      .question("The solution require io? (yes/no) ")
+      .then((answer) => answer.includes("yes"))) ?? true;
 
   const useComplexity = await readline
     .question("Should contain a description of the complexity? (yes/no) ")
@@ -37,7 +39,7 @@ async function main() {
   const isExistFile = await checkFileExists(SOLUTION_PATH);
 
   if (!isExistRoot) {
-    await fs.mkdir(root, {recursive: true});
+    await fs.mkdir(root, { recursive: true });
   }
 
   if (isExistFile) {
@@ -47,7 +49,9 @@ async function main() {
   }
 
   const template = prettier.format(
-    makeTemplate(name, {useClasses, useComplexity})
+    useIOTemplate
+      ? makeInputOutputTemplate(name, { useComplexity })
+      : makeAloneFunctionTemplate({ useComplexity })
   );
 
   fs.writeFile(SOLUTION_PATH, template).then(
@@ -78,17 +82,6 @@ function checkFileExists(filename) {
     .catch(() => false);
 }
 
-const remoteJungle = `
-  if (process.env.REMOTE_JUDGE !== 'true') {
-      class Node {
-        constructor(value = null, next = null) {
-          this.value = value;
-          this.next = next;
-        }
-      }
-  }
-`;
-
 const complexityTemplate = `
 /**
  * -- ПРИНЦИП РАБОТЫ --
@@ -101,7 +94,7 @@ const complexityTemplate = `
  */
 `;
 
-function makeTemplate(filename, options = {}) {
+function makeInputOutputTemplate(filename, options = {}) {
   return `
 // @link
 
@@ -126,8 +119,6 @@ rl
     console.log(solution);
 });
 
-${options.useClasses ? remoteJungle : ""}
-
 function processData(input) {
   // Your code here for processing input
 }
@@ -138,5 +129,20 @@ function processData(input) {
 function solve(args) {
   // Your code here for solving problem
 }
+`;
+}
+
+function makeAloneFunctionTemplate(options = {}) {
+  return `
+  // @link
+
+  ${options.useComplexity ? complexityTemplate : ""}
+
+  /*
+  *  @link
+  */
+  function solve(args) {
+    // Your code here for solving problem
+  }
 `;
 }

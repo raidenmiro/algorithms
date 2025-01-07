@@ -1,6 +1,6 @@
 // @link https://contest.yandex.ru/contest/23991/run-report/131069922
 
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -20,7 +20,7 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 
 function processData(input) {
   const [n, ...mugs] = input;
-  return [Number(n), mugs]
+  return [Number(n), mugs];
 }
 
 /*
@@ -36,5 +36,5 @@ function solve(args) {
     set.add(value);
   }
 
-  return Array.from(set.values()).join('\n');
+  return Array.from(set.values()).join("\n");
 }

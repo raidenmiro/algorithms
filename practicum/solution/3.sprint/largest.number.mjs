@@ -1,6 +1,6 @@
 // @link https://contest.yandex.ru/contest/23638/run-report/131059751
 
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
