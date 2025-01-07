@@ -1,7 +1,6 @@
-import { fail } from "node:assert";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { createInterface } from "node:readline/promises";
+import {createInterface} from "node:readline/promises";
 
 import prettier from "prettier";
 
@@ -39,7 +38,7 @@ async function main() {
   const isExistFile = await checkFileExists(SOLUTION_PATH);
 
   if (!isExistRoot) {
-    await fs.mkdir(root, { recursive: true });
+    await fs.mkdir(root, {recursive: true});
   }
 
   if (isExistFile) {
@@ -50,8 +49,8 @@ async function main() {
 
   const template = prettier.format(
     useIOTemplate
-      ? makeInputOutputTemplate(name, { useComplexity })
-      : makeAloneFunctionTemplate({ useComplexity })
+      ? makeInputOutputTemplate(name, {useComplexity})
+      : makeAloneFunctionTemplate({useComplexity})
   );
 
   fs.writeFile(SOLUTION_PATH, template).then(
@@ -135,6 +134,8 @@ function solve(args) {
 function makeAloneFunctionTemplate(options = {}) {
   return `
   // @link
+  import assert from "node:assert";
+  import test from "node:test";
 
   ${options.useComplexity ? complexityTemplate : ""}
 
@@ -144,5 +145,9 @@ function makeAloneFunctionTemplate(options = {}) {
   function solve(args) {
     // Your code here for solving problem
   }
+
+  test("test case 1", () => {
+    assert.deepStrictEqual(2 + 2, 4)
+  });
 `;
 }
