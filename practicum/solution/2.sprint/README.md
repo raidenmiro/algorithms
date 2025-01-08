@@ -1,1 +1,0 @@
-Contest - https://contest.yandex.ru/contest/22779/problems/A

@@ -1,5 +1,8 @@
 // @link https://contest.yandex.ru/contest/23815/run-report/131028390
 
+import { test } from 'node:test'
+import assert from 'node:assert'
+
 /**
  * -- ПРИНЦИП РАБОТЫ --
  * Для данной задачи используется бинарный поиск с модификацией.
@@ -19,28 +22,10 @@
  * -- ПРОСТРАНСТВЕННАЯ СЛОЖНОСТЬ --
  * O(1)
  */
-import {createInterface} from "node:readline";
 
-const rl = createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-const INPUT_FROM_IO = [];
-
-console.info("Write your input for <search.in.broken.array>:");
-
-rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
-  const parsedInput = processData(INPUT_FROM_IO);
-  const solution = solve(parsedInput);
-
-  console.log(solution);
-});
-
-function processData(input) {
-  return [Number(input[0]), Number(input[1]), input[2].split(" ").map(Number)];
-}
-
+/*
+ *  @link https://contest.yandex.ru/contest/23815/problems/A/
+ */
 function brokenSearch(array, target, l = 0, r = array.length - 1) {
   const middle = (l + r) >> 1;
 
@@ -71,11 +56,10 @@ function brokenSearch(array, target, l = 0, r = array.length - 1) {
   }
 }
 
-/*
- *  @link https://contest.yandex.ru/contest/23815/problems/A/
- */
-function solve(args) {
-  const [k, array] = args;
+test('default behaviour', () => {
+  assert.deepEqual(brokenSearch([19, 21, 100, 101, 1, 4, 5, 7, 12], 5), 6)
+})
 
-  return brokenSearch(array, k);
-}
+test('short array', () => {
+  assert.deepEqual(brokenSearch([5, 1], 1, target), 1)
+})
