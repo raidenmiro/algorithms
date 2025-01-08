@@ -1,4 +1,4 @@
-export const quickSort = (arr, l, r) => {
+export const quickSort = (arr, l = 0, r = arr.length - 1) => {
   if (l < r) {
     const pivot = partition(arr, l, r);
     quickSort(arr, l, pivot);
@@ -7,7 +7,7 @@ export const quickSort = (arr, l, r) => {
 };
 
 const partition = (arr, l, r) => {
-  const middle = arr[Math.floor((l + r) / 2)];
+  const middle = arr[(l + r) >> 1];
 
   let i = l;
   let j = r;

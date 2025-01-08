@@ -13,7 +13,8 @@ class Node {
  *  @link
  */
 function findInLinkedList(node, elem) {
-  let position = 0, curr = node;
+  let position = 0,
+    curr = node;
 
   while (curr !== null) {
     if (elem === curr.value) {

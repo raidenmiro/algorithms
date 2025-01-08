@@ -1,6 +1,6 @@
 // @link
 
-import { createInterface } from "node:readline";
+import {createInterface} from "node:readline";
 
 const rl = createInterface({
   input: process.stdin,
@@ -24,14 +24,14 @@ function processData(input) {
 class QueueOverflowError extends Error {
   constructor() {
     super();
-    this.message = 'Queue size is reached';
+    this.message = "Queue size is reached";
   }
 }
 
 class QueueEmptyError extends Error {
   constructor() {
     super();
-    this.message = 'Queue is empty'
+    this.message = "Queue is empty";
   }
 }
 
@@ -79,32 +79,32 @@ function solve(args) {
   const queue = new Queue(maxSize);
 
   for (const command of commands.filter(Boolean)) {
-    const [method, value] = command.split(' ');
+    const [method, value] = command.split(" ");
 
     try {
       switch (method) {
-        case 'push':
+        case "push":
           queue.push(value);
           break;
-        case 'pop':
+        case "pop":
           console.log(queue.pop());
           break;
-        case 'peek':
+        case "peek":
           console.log(queue.peek());
           break;
-        case 'size':
+        case "size":
           console.log(queue.size());
           break;
         default:
-          throw new Error('uncreachable!');
+          throw new Error("uncreachable!");
       }
     } catch (error) {
       if (error instanceof QueueEmptyError) {
-        console.log('None')
+        console.log("None");
       }
 
       if (error instanceof QueueOverflowError) {
-        console.log('error')
+        console.log("error");
       }
     }
   }

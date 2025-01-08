@@ -13,14 +13,15 @@ class Node {
  *  @link
  */
 function solve(head) {
-  let curr = head, result = [];
+  let curr = head,
+    result = [];
 
   while (curr !== null) {
     result.push(curr.value);
     curr = curr.next;
   }
 
-  return result.slice(1).join('\n')
+  return result.slice(1).join("\n");
 }
 
 test("test case 1", () => {

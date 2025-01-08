@@ -1,7 +1,7 @@
 // @link https://contest.yandex.ru/contest/23815/run-report/131028390
 
-import { test } from 'node:test'
-import assert from 'node:assert'
+import {test} from "node:test";
+import assert from "node:assert";
 
 /**
  * -- ПРИНЦИП РАБОТЫ --
@@ -56,10 +56,10 @@ function brokenSearch(array, target, l = 0, r = array.length - 1) {
   }
 }
 
-test('default behaviour', () => {
-  assert.deepEqual(brokenSearch([19, 21, 100, 101, 1, 4, 5, 7, 12], 5), 6)
-})
+test("default behaviour", () => {
+  assert.deepEqual(brokenSearch([19, 21, 100, 101, 1, 4, 5, 7, 12], 5), 6);
+});
 
-test('short array', () => {
-  assert.deepEqual(brokenSearch([5, 1], 1, target), 1)
-})
+test("short array", () => {
+  assert.deepEqual(brokenSearch([5, 1], 1, target), 1);
+});
