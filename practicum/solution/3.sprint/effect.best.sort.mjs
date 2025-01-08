@@ -53,11 +53,22 @@ function compareInternsPoints(a, b, comparator) {
   const fIntern = getSolvedTasks(a);
   const sIntern = getSolvedTasks(b);
 
+  if (fIntern === sIntern && getPenaltyPoints(a) === getPenaltyPoints(b)) {
+    return false;
+  }
+
   if (fIntern === sIntern) {
     return comparator(getPenaltyPoints(b), getPenaltyPoints(a));
   }
 
   return comparator(fIntern, sIntern);
+}
+
+function isEqual(a, b) {
+  return (
+    getPenaltyPoints(a) === getPenaltyPoints(b) &&
+    getSolvedTasks(a) === getSolvedTasks(b)
+  );
 }
 
 /*
@@ -83,7 +94,8 @@ function solve(args) {
       }
 
       if (i <= j) {
-        [interns[i], interns[j]] = [interns[j], interns[i]];
+        if (!isEqual(interns[i], interns[j]))
+          [interns[i], interns[j]] = [interns[j], interns[i]];
         i++;
         j--;
       }
