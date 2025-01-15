@@ -20,7 +20,7 @@ async function main() {
   );
 
   const arrifyFilenames = filenames.split(" ").map((filename) => {
-    return `practicum/solution/${sprintDirectory}/${filename}.mjs`;
+    return `practicum/solution/${sprintDirectory}/${filename}`;
   });
 
   if (arrifyFilenames.length === 0) {

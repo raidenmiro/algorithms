@@ -1,12 +1,13 @@
 /**
-* Input: "ab-ce", Output: "ec-ba"
-*/
+ * Input: "ab-ce", Output: "ec-ba"
+ */
 function reverseOnlyLetters(s) {
   const lettersRegex = /[a-z]/i;
 
-  let l = 0, r = s.length - 1;
+  let l = 0,
+    r = s.length - 1;
 
-  s = s.split('');
+  s = s.split("");
 
   while (l < r) {
     const aCh = s[l];
@@ -26,10 +27,11 @@ function reverseOnlyLetters(s) {
     s[l] = s[r];
     s[r] = temp;
 
-    l++; r--;
+    l++;
+    r--;
   }
 
-  return s.join('');
-};
+  return s.join("");
+}
 
 export default reverseOnlyLetters;

@@ -11,5 +11,5 @@ export default function insertSort(array) {
     array[j] = itemToInsert;
   }
 
-  return array
+  return array;
 }

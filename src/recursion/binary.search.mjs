@@ -19,4 +19,4 @@ function binarySearch(arr, target, l = 0, r = arr.length - 1) {
   }
 }
 
-export default binarySearch
+export default binarySearch;

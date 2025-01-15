@@ -98,7 +98,7 @@ function makeInputOutputTemplate(filename, options = {}) {
 // @link
 
 ${options.useComplexity ? complexityTemplate : ""}
-import { createInterface } from "node:readline";
+const { createInterface } = require("readline");
 
 const rl = createInterface({
   input: process.stdin,
@@ -107,6 +107,7 @@ const rl = createInterface({
 
 const INPUT_FROM_IO = [];
 
+// delete before submit!
 console.info('Write your input for <${filename}>:');
 
 rl

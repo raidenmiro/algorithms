@@ -1,6 +1,6 @@
 /**
- * 
- * @param {number[]} arr 
+ *
+ * @param {number[]} arr
  */
 export const findMinEvenDigit = (arr) => {
   let min = -1;
@@ -12,4 +12,4 @@ export const findMinEvenDigit = (arr) => {
   }
 
   return min;
-} 
+};

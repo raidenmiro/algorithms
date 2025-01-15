@@ -1,15 +1,12 @@
 // @link https://contest.yandex.ru/contest/23815/run-report/131028390
 
-import {test} from "node:test";
-import assert from "node:assert";
-
 /**
  * -- ПРИНЦИП РАБОТЫ --
  * Для данной задачи используется бинарный поиск с модификацией.
  * - Находим средний элемент массива
  * - Ищем часть которая отсортирована
- * - Если искомый элемент больше крайнего, то переходим в левую часть массива
- * - Иначе переходим в правую часть массива
+ * - Если искомый элемент больше крайнего в отсортированной части по возрастанию, то переходим в правую часть массива
+ * - Иначе переходим в левую часть массива
  *
  * -- ДОКАЗАТЕЛЬСТВО КОРРЕКТНОСТИ --
  * Можно заметить, что в массиве от начала до среднего элемента -
@@ -20,7 +17,7 @@ import assert from "node:assert";
  * O(log(n))
  *
  * -- ПРОСТРАНСТВЕННАЯ СЛОЖНОСТЬ --
- * O(1)
+ *  O(log n)
  */
 
 /*
@@ -42,24 +39,16 @@ function brokenSearch(array, target, l = 0, r = array.length - 1) {
   }
 
   if (middleItem >= leftItem) {
-    if (target >= leftItem && target < middleItem) {
+    if (target >= leftItem && target <= middleItem) {
       return brokenSearch(array, target, l, middle - 1);
     } else {
       return brokenSearch(array, target, middle + 1, r);
     }
   } else {
-    if (target > middleItem && target < rightItem) {
+    if (target > middleItem && target <= rightItem) {
       return brokenSearch(array, target, middle + 1, r);
     } else {
       return brokenSearch(array, target, l, middle - 1);
     }
   }
 }
-
-test("default behaviour", () => {
-  assert.deepEqual(brokenSearch([19, 21, 100, 101, 1, 4, 5, 7, 12], 5), 6);
-});
-
-test("short array", () => {
-  assert.deepEqual(brokenSearch([5, 1], 1, target), 1);
-});
