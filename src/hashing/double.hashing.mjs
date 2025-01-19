@@ -1,3 +1,7 @@
+/**
+ * Разрешение коллизий с помощью цепочек (закрытая адресация)
+ */
+
 class HashNode {
   constructor(key, value) {
     this.key = key;
