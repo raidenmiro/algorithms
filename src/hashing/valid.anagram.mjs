@@ -23,7 +23,7 @@ var isAnagram = function (s, t) {
     map[ch] -= 1;
   }
 
-  return Object.values(map).every(count => count === 0);
+  return Object.values(map).every((count) => count === 0);
 };
 
-export default isAnagram
+export default isAnagram;

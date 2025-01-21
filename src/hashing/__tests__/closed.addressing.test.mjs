@@ -1,18 +1,18 @@
 import assert from "node:assert";
 import {describe, test} from "node:test";
-import {DoubleHasing} from "../double.hashing.mjs";
+import {HashMap} from "../closed.addressing.mjs";
 
-describe("DoubleHasing", () => {
-  test("DoubleHasing.get()", () => {
-    const hash = new DoubleHasing();
+describe("HashMap", () => {
+  test("HashMap.get()", () => {
+    const hash = new HashMap();
 
     hash.add("key", 3);
 
     assert.equal(hash.get("key"), 3);
   });
 
-  test("DoubleHasing.remove()", () => {
-    const hash = new DoubleHasing();
+  test("HashMap.remove()", () => {
+    const hash = new HashMap();
 
     hash.add("delete-key", 10);
     assert.equal(hash.get("delete-key"), 10);
@@ -21,8 +21,8 @@ describe("DoubleHasing", () => {
     assert.equal(hash.get("delete-key"), undefined);
   });
 
-  test("DoubleHasing.get() -> identical key hash", () => {
-    const hash = new DoubleHasing();
+  test("HashMap.get() -> identical key hash", () => {
+    const hash = new HashMap();
 
     hash.add("fao", 10);
     assert.equal(hash.get("fao"), 10);
@@ -31,8 +31,8 @@ describe("DoubleHasing", () => {
     assert.equal(hash.get("lhb"), 100);
   });
 
-  test("DoubleHasing.remove() -> identical key hash", () => {
-    const hash = new DoubleHasing();
+  test("HashMap.remove() -> identical key hash", () => {
+    const hash = new HashMap();
 
     hash.add("fao", 10);
     assert.equal(hash.get("fao"), 10);
@@ -46,8 +46,8 @@ describe("DoubleHasing", () => {
     assert.equal(hash.get("fao"), 10);
   });
 
-  test("DoubleHasing.add() -> Update 1", () => {
-    const hash = new DoubleHasing();
+  test("HashMap.add() -> Update 1", () => {
+    const hash = new HashMap();
 
     hash.add("fao", 10);
     assert.equal(hash.get("fao"), 10);
@@ -55,8 +55,8 @@ describe("DoubleHasing", () => {
     assert.equal(hash.get("fao"), 10);
   });
 
-  test("DoubleHasing.add() -> Update 2", () => {
-    const hash = new DoubleHasing();
+  test("HashMap.add() -> Update 2", () => {
+    const hash = new HashMap();
 
     hash.add("fao", 10);
     assert.equal(hash.get("fao"), 10);

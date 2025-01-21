@@ -17,4 +17,4 @@ var containsDuplicate = function (nums) {
   return false;
 };
 
-export default containsDuplicate
+export default containsDuplicate;

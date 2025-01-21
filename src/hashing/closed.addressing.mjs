@@ -1,7 +1,3 @@
-/**
- * Разрешение коллизий с помощью цепочек (закрытая адресация)
- */
-
 class HashNode {
   constructor(key, value) {
     this.key = key;
@@ -10,7 +6,10 @@ class HashNode {
   }
 }
 
-export class DoubleHasing {
+/**
+ * Разрешение коллизий с помощью цепочек (закрытая адресация)
+ */
+export class HashMap {
   #table;
   #size;
 
@@ -20,9 +19,11 @@ export class DoubleHasing {
   }
 
   #calculateHash(key) {
+    const encodedKey = typeof key === "string" ? key : JSON.stringify(key);
+
     return (
       Math.abs(
-        key.split("").reduce((sum, char) => char.charCodeAt() + sum, 0)
+        encodedKey.split("").reduce((sum, char) => char.charCodeAt() + sum, 0)
       ) % this.#size
     );
   }
