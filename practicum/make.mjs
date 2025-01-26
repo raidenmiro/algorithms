@@ -32,7 +32,7 @@ async function main() {
     signal,
   });
 
-  const SOLUTION_PATH = path.join(root, `${name}.mjs`);
+  const SOLUTION_PATH = path.join(root, `${name}.js`);
 
   const isExistRoot = await checkFileExists(root);
   const isExistFile = await checkFileExists(SOLUTION_PATH);

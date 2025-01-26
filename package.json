@@ -1,7 +1,6 @@
 {
   "name": "algorithms",
   "author": "Robert Kuzhin",
-  "type": "module",
   "packageManager": "pnpm@9.1.1",
   "engines": {
     "node": ">=21.0.0"
@@ -10,7 +9,6 @@
     "test": "node --test",
     "make": "node ./practicum/make.mjs",
     "submit": "node ./practicum/archive.mjs"
-
   },
   "devDependencies": {
     "@types/node": "^18.19.34",

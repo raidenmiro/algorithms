@@ -32,32 +32,10 @@ export class HashMap {
     return this.#table.length;
   }
 
-  add(key, value) {
-    const index = this.#calculateHash(key);
-
-    if (!this.#table[index]) {
-      this.#table[index] = new HashNode(key, value);
-      return;
-    }
-
-    let curr = this.#table[index];
-
-    if (curr.key === key) {
-      curr.value = value;
-      return;
-    }
-
-    while (curr.next !== null) {
-      if (curr.next.key === key) {
-        curr.next.value = value;
-        return;
-      }
-      curr = curr.next;
-    }
-
-    curr.next = new HashNode(key, value);
-  }
-
+  /**
+   * TODO: add new Node to head
+   * As an enhancement, add lru cache
+   */
   add(key, value) {
     const index = this.#calculateHash(key);
 
