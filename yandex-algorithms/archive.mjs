@@ -1,5 +1,5 @@
-import {execSync} from "node:child_process";
-import {createInterface} from "node:readline/promises";
+import { execSync } from "node:child_process";
+import { createInterface } from "node:readline/promises";
 
 const readline = createInterface({
   input: process.stdin,
@@ -16,7 +16,7 @@ async function main() {
   execSync(`mkdir -p ${ARCHIVE_FILENAME}`);
 
   const filenames = await readline.question(
-    "Write your solutions name, like: 'binary.search deque': "
+    "Write your solutions name, like: 'binary.search deque hash.table.js': "
   );
 
   const arrifyFilenames = filenames.split(" ").map((filename) => {

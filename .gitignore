@@ -3,3 +3,4 @@ node_modules
 rustbook/target
 .vscode
 __submit_solution__
+.idea

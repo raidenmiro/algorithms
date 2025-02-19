@@ -1,6 +1,6 @@
 // @link
 
-const { createInterface } = require("readline");
+const {createInterface} = require("readline");
 
 const rl = createInterface({
   input: process.stdin,
@@ -20,7 +20,7 @@ rl.on("line", (line) => INPUT_FROM_IO.push(line)).on("close", () => {
 });
 
 function processData(input) {
-  const [base, mod, s, queryCount, ...queries] = input
+  const [base, mod, s, queryCount, ...queries] = input;
 
   return [Number(base), Number(mod), s, Number(queryCount), queries];
 }
@@ -36,6 +36,4 @@ function solve(args) {
     const charCode = s.charCodeAt(charIndex);
     hash = (hash * base + charCode) % mod;
   }
-
-
 }

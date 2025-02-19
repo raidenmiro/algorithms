@@ -42,6 +42,6 @@ function solve(args) {
   }
 
   return Object.values(group)
-    .map((grouAnagrams) => grouAnagrams.join(" "))
+    .map((groupAnagrams) => groupAnagrams.join(" "))
     .join("\n");
 }

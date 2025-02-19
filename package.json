@@ -11,7 +11,7 @@
     "submit": "node ./practicum/archive.mjs"
   },
   "devDependencies": {
-    "@types/node": "^18.19.34",
+    "@types/node": "^18.19.80",
     "@types/prettier": "^3.0.0",
     "prettier": "^2.8.4"
   },

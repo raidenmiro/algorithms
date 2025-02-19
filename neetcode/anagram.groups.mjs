@@ -20,11 +20,15 @@ function groupAnagrams(strs) {
   return Array.from(anagrams.values());
 }
 
+/**
+ *
+ * @param s {string}
+ * @returns {string}
+ */
 function getKey(s) {
-  return s
-    .split("")
-    .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
-    .join("");
+  const key = s.split("")
+  key.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+  return key.join("");
 }
 
 test("case 1", () => {
