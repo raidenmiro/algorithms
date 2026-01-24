@@ -4,3 +4,4 @@ rustbook/target
 .vscode
 __submit_solution__
 .idea
+venv
